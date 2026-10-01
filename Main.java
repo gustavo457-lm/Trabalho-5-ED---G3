@@ -1,19 +1,50 @@
 import OrdenarPalavras;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+import java.util.ArrayList;
 
 public class Main {
-
+    
+    public static List preProcessamento(List nomes, List nomesProcessados) {
+		for (int i=0; i< nomes.size(); i++) {
+			String nome = ((String) nomes.get(i)).toLowerCase();
+	        nome = nome.replaceAll("[^\\p{L} ]", "");
+	        nomesProcessados.add(nome);
+		}
+		return nomesProcessados;
+	}
+    
     public static void main(String[] args) {
 
         OrdenarPalavras Sort = new OrdenarPalavras();
 
-        //LER ARQUIVOS E FAZER PRÉ PROCESSAMENTO
-
-        String[] palavras250 = new String[250000];
-        String[] palavras500 = new String[500000];
-        String[] palavras1000 = new String[1000000];
+        Path nomes250k = Path.of("C:\\Users\\gustv\\eclipse-workspace\\algoritmosDeOrdenação\\src\\algoritmosDeOrdenação\\nomes250k.txt");
+		Path nomes500k = Path.of("C:\\Users\\gustv\\eclipse-workspace\\algoritmosDeOrdenação\\src\\algoritmosDeOrdenação\\nomes500.txt");
+		Path nomes1m = Path.of("C:\\Users\\gustv\\eclipse-workspace\\algoritmosDeOrdenação\\src\\algoritmosDeOrdenação\\nomes1m.txt");
+		
+		List<String> listanomes250 = Files.readAllLines(nomes250k);
+		List<String> listanomes500 = Files.readAllLines(nomes500k);
+		List<String> listanomes1m = Files.readAllLines(nomes1m);
+		
+		int quantPalavrasListanomes250SemPP = listanomes250.size();
+		int quantPalavrasListanomes500SemPP = listanomes500.size();
+		int quantPalavrasListanomes1mSemPP = listanomes1m.size();
+		
+		List<String> listanomes250PreProcessados = new ArrayList<>();
+		List<String> listanomes500PreProcessados = new ArrayList<>();
+		List<String> listanomes1mPreProcessados = new ArrayList<>();
+		
+		listanomes250PreProcessados = preProcessamento(listanomes250, listanomes250PreProcessados);
+		listanomes500PreProcessados = preProcessamento(listanomes500, listanomes500PreProcessados);
+		listanomes1mPreProcessados = preProcessamento(listanomes1m, listanomes1mPreProcessados);
+		
+		int quantPalavrasListanomes250ComPP = listanomes250PreProcessados.size();
+		int quantPalavrasListanomes500ComPP = listanomes500PreProcessados.size();
+		int quantPalavrasListanomes1mComPP = listanomes1mPreProcessados.size();
         
-
-
         tempo_bubble250 = Sort.bubble5x();
         tempo_bubble500 = Sort.bubble5x();
         tempo_bubble1000 = Sort.bubble5x();
