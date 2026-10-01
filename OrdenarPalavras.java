@@ -17,7 +17,7 @@ public class OrdenarPalavras {
         return novo;
     }
 
-    double bubble250(String[] arr)
+    double bubble5x(String[] arr)
     {
         double tempo = 0;
         int n = arr.length;
@@ -39,7 +39,7 @@ public class OrdenarPalavras {
 
 
 
-    double selection1000(String[] arr)
+    double selection5x(String[] arr)
     {
         double tempo = 0;
         int n = arr.length;
@@ -61,7 +61,7 @@ public class OrdenarPalavras {
     }
 
 
-    double insertion1000(String[] arr)
+    double insertion5x(String[] arr)
     {
         double tempo = 0;
         int n = arr.length;
@@ -83,7 +83,7 @@ public class OrdenarPalavras {
     }
 
 
-    double shell1000(String[] arr)
+    double shell5x(String[] arr)
     {
         double tempo = 0;
         int n = arr.length;
@@ -105,7 +105,7 @@ public class OrdenarPalavras {
     }
 
 
-    double merge1000(String[] arr)
+    double merge5x(String[] arr)
     {
         double tempo = 0;
         int n = arr.length;
@@ -127,7 +127,7 @@ public class OrdenarPalavras {
     }
 
 
-    double quick1000(String[] arr)
+    double quick5x(String[] arr)
     {
         double tempo = 0;
         int n = arr.length;
@@ -149,7 +149,7 @@ public class OrdenarPalavras {
     }
 
 
-    double heap1000(String[] arr)
+    double heap5x(String[] arr)
     {
         double tempo = 0;
         int n = arr.length;
