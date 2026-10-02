@@ -1,8 +1,6 @@
 
 public class Sorts {
 
-//Algoritmos de ordenação
-
     static void bubble(String[] arr) {
 
         int n = arr.length;
@@ -92,5 +90,38 @@ public class Sorts {
         }
     }
 
+    
+    static void ShellSort(String[] a) {
+        int n = a.length;
+        
+        int h = 1;
+        while (h < n / 3) {
+            h = 3 * h + 1;
+        }
 
+        while (h >= 1) {
+            for (int i = h; i < n; i++) {
+                for (int j = i; j >= h && a[j].compareTo(a[j - h]) < 0; j -= h) {
+                    String t = a[j];
+                    a[j] = a[j - h];
+                    a[j - h] = t;
+                }
+            }
+            h = h / 3;
+        }
+    }
+    
+   
+    public static void InsertionSort(String[] a) {
+        int n = a.length;
+        
+        for (int i = 1; i < n; i++) {
+            for (int j = i; j > 0 && a[j].compareTo(a[j - 1]) < 0; j--) {
+                String swap = a[j];
+                a[j] = a[j - 1];
+                a[j - 1] = swap;
+            }
+        }
+    }
+    
 }
