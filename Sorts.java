@@ -158,5 +158,32 @@ public class Sorts {
 	        QuickSort(arr, inicio, j - 1);
 	        QuickSort(arr, j + 1, fim);
 	    }
+
 	}
+
+    static void HeapSort(String[] arr) {
+        int n = arr.length;
+        for (int i = n / 2 - 1; i >= 0; i--)
+            heapify(arr, n, i);
+        for (int i = n - 1; i > 0; i--) {
+            String tmp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = tmp;
+
+            heapify(arr, i, 0);
+        }
+    }
+
+    static void heapify(String[] arr, int n, int i) {
+        while (true) {
+            int maior = i;
+            int l = 2 * i + 1, r = 2 * i + 2;
+            if (l < n && arr[l].compareTo(arr[maior]) > 0) maior = l;
+            if (r < n && arr[r].compareTo(arr[maior]) > 0) maior = r;
+            if (maior == i)
+                break;
+            String tmp = arr[i]; arr[i] = arr[maior]; arr[maior] = tmp;
+            i = maior;
+        }
+    }
 }

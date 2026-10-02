@@ -139,7 +139,7 @@ public class OrdenarPalavras {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            //Sorts.quickSort(novo, 0, n-1);
+            Sorts.QuickSort(novo, 0, n-1);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
@@ -161,7 +161,7 @@ public class OrdenarPalavras {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            //Sorts.heapSort(novo);
+            Sorts.HeapSort(novo);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
