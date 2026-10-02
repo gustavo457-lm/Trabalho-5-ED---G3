@@ -40,6 +40,57 @@ public class Sorts {
         }
     }
 
+    static void MergeSort(String[] arr, int inicio, int fim){
+		int meio;
+		int n = arr.length;
+		
+        if (fim == 0){
+            fim = n;
+        }
+        
+        if (fim - inicio > 1){
+        	
+            meio = (fim+inicio)/2;
+            MergeSort(arr, inicio, meio);
+            MergeSort(arr, meio, fim);
+            String[] left = new String[meio - inicio];
+    		String[] right = new String[fim - meio];
+            
+    		int j = 0;
+    		int p = 0;
+    		
+            for (int i = inicio; i < fim; i++) {
+            	if (i < meio) {
+            		left[j] = arr[i];
+            		j++;
+            	}else {
+            		right[p] = arr[i];
+            		p++;
+            	}
+            }
+            
+            int top_left = 0;
+            int top_right = 0;
+            
+            for (int i = inicio; i < fim; i++) {
+                if (top_left >= left.length) {
+                	arr[i] = right[top_right];
+                    top_right+=1;
+                }else if (top_right >= right.length){
+                	arr[i] = left[top_left];
+                    top_left+=1;
+                    
+                }else if (left[top_left].compareToIgnoreCase(right[top_right]) < 0){
+                	arr[i] = left[top_left];
+                    top_left+=1;
+                    
+            	}else {
+            		arr[i] = right[top_right];
+                    top_right+=1;
+            	}
+            }
+        }
+    }
 
 
 }
