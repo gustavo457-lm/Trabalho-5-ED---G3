@@ -1,9 +1,9 @@
-import Sorts;
 
 public class OrdenarPalavras {
 
     long inicio;
     long fim;
+
     //Copia o array desordenado para realizar as ordenações
     String[] criarNovoArr(String[] arr)
     {
@@ -17,13 +17,14 @@ public class OrdenarPalavras {
         return novo;
     }
 
-    double bubble5x(String[] arr)
+    //Cada algoritmo possui 2 parâmetros: o array de ordenação e a quantidade de repetições
+    double bubble5x(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
         String[] novo = new String[n];
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < num; i++)
         {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
@@ -32,20 +33,20 @@ public class OrdenarPalavras {
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
-            System.out.println("TERMINOU BUBBLE " + (i+1));
+            System.out.println("TERMINOU BUBBLE " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
-        return tempo/5;
+        return tempo/num;
     }
 
 
 
-    double selection5x(String[] arr)
+    double selection5x(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
         String[] novo = new String[n];
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < num; i++)
         {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
@@ -54,119 +55,119 @@ public class OrdenarPalavras {
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
-            System.out.println("TERMINOU SELECTION " + (i+1));
+            System.out.println("TERMINOU SELECTION " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
-        return tempo/5;
+        return tempo/num;
 
     }
 
 
-    double insertion5x(String[] arr)
+    double insertion5x(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
         String[] novo = new String[n];
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < num; i++)
         {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            Sorts.insertion(novo);
+            //Sorts.insertion(novo);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
-            System.out.println("TERMINOU INSERTION " + (i+1));
+            System.out.println("TERMINOU INSERTION " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
-        return tempo/5;
+        return tempo/num;
 
     }
 
 
-    double shell5x(String[] arr)
+    double shell5x(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
         String[] novo = new String[n];
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < num; i++)
         {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            Sorts.shell(novo);
+            //Sorts.shell(novo);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
-            System.out.println("TERMINOU SHELL " + (i+1));
+            System.out.println("TERMINOU SHELL " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
-        return tempo/5;
+        return tempo/num;
 
     }
 
 
-    double merge5x(String[] arr)
+    double merge5x(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
         String[] novo = new String[n];
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < num; i++)
         {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            Sorts.mergeSort(novo, 0, n-1);
+            //Sorts.mergeSort(novo, 0, n-1);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
-            System.out.println("TERMINOU MERGE " + (i+1));
+            System.out.println("TERMINOU MERGE " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
-        return tempo/5;
+        return tempo/num;
 
     }
 
 
-    double quick5x(String[] arr)
+    double quick5x(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
         String[] novo = new String[n];
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < num; i++)
         {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            Sorts.quickSort(novo, 0, n-1);
+            //Sorts.quickSort(novo, 0, n-1);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
-            System.out.println("TERMINOU QUICK " + (i+1));
+            System.out.println("TERMINOU QUICK " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
-        return tempo/5;
+        return tempo/num;
 
     }
 
 
-    double heap5x(String[] arr)
+    double heap5x(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
         String[] novo = new String[n];
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < num; i++)
         {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            Sorts.heapSort(novo);
+            //Sorts.heapSort(novo);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
-            System.out.println("TERMINOU HEAP " + (i+1));
+            System.out.println("TERMINOU HEAP " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
-        return tempo/5;
+        return tempo/num;
 
     }
 
