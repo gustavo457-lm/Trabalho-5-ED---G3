@@ -76,20 +76,25 @@ public class Main {
         System.out.println("Quantidade de palavras no arquivo de 1000k depois: " + quantPalavrasListanomes1mComPP);
 
         //Declaração dos arrays que serão usados nas ordenações
-        String[] palavras_processadas250 = new String[250000];
-        String[] palavras_processadas500 = new String[500000];
-        String[] palavras_processadas1000 = new String[1000000];
+
+        int quant1 = 10000;
+        int quant2 = 25000;
+        int quant3 = 50000;
+
+        String[] palavras_processadas250 = new String[quant1];
+        String[] palavras_processadas500 = new String[quant2];
+        String[] palavras_processadas1000 = new String[quant3];
 
         //Copia os elementos dos Arraylist para os Arrays
-        for (int i = 0; i < 250000; i++) {
+        for (int i = 0; i < quant1; i++) {
             palavras_processadas250[i] = listanomes250PreProcessados.get(i);
         }
 
-        for (int i = 0; i < 500000; i++) {
+        for (int i = 0; i < quant2; i++) {
             palavras_processadas500[i] = listanomes500PreProcessados.get(i);
         }
 
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < quant3; i++) {
             palavras_processadas1000[i] = listanomes1mPreProcessados.get(i);
         }
 
@@ -98,40 +103,40 @@ public class Main {
         //resultado da chamada dos métodos de ordenação, que corresponde ao tempo.
 
         XYSeries bubble = new XYSeries("Bubble (int)");
-        bubble.add(250000, Sort.bubble5x(palavras_processadas250,5));
-        bubble.add(500000, Sort.bubble5x(palavras_processadas500,5));
-        bubble.add(1000000, Sort.bubble5x(palavras_processadas1000,5));
+        bubble.add(quant1, Sort.Bubblex(palavras_processadas250,5));
+        bubble.add(quant2, Sort.Bubblex(palavras_processadas500,5));
+        bubble.add(quant3, Sort.Bubblex(palavras_processadas1000,5));
 
         XYSeries selection = new XYSeries("Selection (int)");
-        selection.add(250000, Sort.selection5x(palavras_processadas250,5));
-        selection.add(500000, Sort.selection5x(palavras_processadas500,5));
-        selection.add(1000000, Sort.selection5x(palavras_processadas1000,5));
+        selection.add(quant1, Sort.Selectionx(palavras_processadas250,5));
+        selection.add(quant2, Sort.Selectionx(palavras_processadas500,5));
+        selection.add(quant3, Sort.Selectionx(palavras_processadas1000,5));
 
         XYSeries insertion = new XYSeries("Insertion (int)");
-        insertion.add(250000, Sort.insertion5x(palavras_processadas250,5));
-        insertion.add(500000, Sort.insertion5x(palavras_processadas500,5));
-        insertion.add(1000000, Sort.insertion5x(palavras_processadas1000,5));
+        insertion.add(quant1, Sort.Insertionx(palavras_processadas250,5));
+        insertion.add(quant2, Sort.Insertionx(palavras_processadas500,5));
+        insertion.add(quant3, Sort.Insertionx(palavras_processadas1000,5));
 
 
         XYSeries shell = new XYSeries("Shell (int)");
-        shell.add(250000, Sort.shell5x(palavras_processadas250,5));
-        shell.add(500000, Sort.shell5x(palavras_processadas500,5));
-        shell.add(1000000, Sort.shell5x(palavras_processadas1000,5));
+        shell.add(quant1, Sort.Shellx(palavras_processadas250,5));
+        shell.add(quant2, Sort.Shellx(palavras_processadas500,5));
+        shell.add(quant3, Sort.Shellx(palavras_processadas1000,5));
 
         XYSeries quick = new XYSeries("Quick (int)");
-        quick.add(250000, Sort.quick5x(palavras_processadas250,5));
-        quick.add(500000, Sort.quick5x(palavras_processadas500,5));
-        quick.add(1000000, Sort.quick5x(palavras_processadas1000,5));
+        quick.add(quant1, Sort.Quickx(palavras_processadas250,5));
+        quick.add(quant2, Sort.Quickx(palavras_processadas500,5));
+        quick.add(quant3, Sort.Quickx(palavras_processadas1000,5));
 
         XYSeries merge = new XYSeries("Merge (int)");
-        merge.add(250000, Sort.merge5x(palavras_processadas250,5));
-        merge.add(500000, Sort.merge5x(palavras_processadas500,5));
-        merge.add(1000000, Sort.merge5x(palavras_processadas1000,5));
+        merge.add(quant1, Sort.Mergex(palavras_processadas250,5));
+        merge.add(quant2, Sort.Mergex(palavras_processadas500,5));
+        merge.add(quant3, Sort.Mergex(palavras_processadas1000,5));
 
         XYSeries heap = new XYSeries("Heap (int)");
-        heap.add(250000, Sort.heap5x(palavras_processadas250,5));
-        heap.add(500000, Sort.heap5x(palavras_processadas500,5));
-        heap.add(1000000, Sort.heap5x(palavras_processadas1000,5));
+        heap.add(quant1, Sort.Heapx(palavras_processadas250,5));
+        heap.add(quant2, Sort.Heapx(palavras_processadas500,5));
+        heap.add(quant3, Sort.Heapx(palavras_processadas1000,5));
 
         //Cria o gráfico dos algoritmos O(NlogN)
         XYSeriesCollection datasetNlogN = new XYSeriesCollection();
@@ -158,20 +163,20 @@ public class Main {
 
         //Salva o gráfico em png
         try {
-            ChartUtils.saveChartAsPNG(new File("benchmark_O(NlogN).png"), chartNlogN, 900, 600);
+            ChartUtils.saveChartAsPNG(new File("Algoritmos_O(NlogN).png"), chartNlogN, 900, 600);
         } catch (IOException e) {
             System.out.println("Deu erro aqui, ó");
         }
         System.out.println("Gráfico salvo em: Algoritmos_O(NlogN).png");
 
-        //Cria o gráfico dos algoritmos O(n^2)
+        //Cria o gráfico dos algoritmos O(n²)
         XYSeriesCollection dataset_n2 = new XYSeriesCollection();
         dataset_n2.addSeries(bubble);
         dataset_n2.addSeries(selection);
         dataset_n2.addSeries(insertion);
 
         JFreeChart chart_n2 = ChartFactory.createXYLineChart(
-                "Benchmark de Algoritmos de Ordenação O(nLogn)",
+                "Benchmark de Algoritmos de Ordenação O(n²)",
                 "Palavras",
                 "Tempo (s)",
                 dataset_n2,
@@ -179,16 +184,15 @@ public class Main {
                 true, true, false
         );
 
-        // Eixos log-log (mostra O(n²) vs O(n log n) claramente)
         chart_n2.getXYPlot().setDomainAxis(new NumberAxis("Palavras"));
         chart_n2.getXYPlot().setRangeAxis(new NumberAxis("Tempo (s)"));
 
         try {
-            ChartUtils.saveChartAsPNG(new File("benchmark_O(n2).png"), chart_n2, 900, 600);
+            ChartUtils.saveChartAsPNG(new File("Algoritmos_O(n2).png"), chart_n2, 900, 600);
         } catch (IOException e) {
             System.out.println("Deu erro aqui, ó");
         }
-        System.out.println("Gráfico salvo em: Algoritmos O(N^2).png");
+        System.out.println("Gráfico salvo em: Algoritmos O(n2).png");
 
 
 

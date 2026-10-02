@@ -18,7 +18,7 @@ public class OrdenarPalavras {
     }
 
     //Cada algoritmo possui 2 parâmetros: o array de ordenação e a quantidade de repetições
-    double bubble5x(String[] arr, int num)
+    double Bubblex(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
@@ -29,18 +29,19 @@ public class OrdenarPalavras {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            Sorts.bubble(novo);
+            Sorts.BubbleSort(novo);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
             System.out.println("TERMINOU BUBBLE " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
+        System.out.println("MÉDIA: " + tempo/num + "s");
         return tempo/num;
     }
 
 
 
-    double selection5x(String[] arr, int num)
+    double Selectionx(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
@@ -51,18 +52,19 @@ public class OrdenarPalavras {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            Sorts.selection(novo);
+            Sorts.SelectionSort(novo);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
             System.out.println("TERMINOU SELECTION " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
+        System.out.println("MÉDIA: " + tempo/num + "s");
         return tempo/num;
 
     }
 
 
-    double insertion5x(String[] arr, int num)
+    double Insertionx(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
@@ -73,18 +75,19 @@ public class OrdenarPalavras {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            //Sorts.insertion(novo);
+            Sorts.InsertionSort(novo);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
             System.out.println("TERMINOU INSERTION " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
+        System.out.println("MÉDIA: " + tempo/num + "s");
         return tempo/num;
 
     }
 
 
-    double shell5x(String[] arr, int num)
+    double Shellx(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
@@ -95,18 +98,19 @@ public class OrdenarPalavras {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            //Sorts.shell(novo);
+            Sorts.ShellSort(novo);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
             System.out.println("TERMINOU SHELL " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
+        System.out.println("MÉDIA: " + tempo/num + "s");
         return tempo/num;
 
     }
 
 
-    double merge5x(String[] arr, int num)
+    double Mergex(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
@@ -117,18 +121,19 @@ public class OrdenarPalavras {
             novo = criarNovoArr(arr);
             inicio = System.nanoTime();
 
-            //Sorts.mergeSort(novo, 0, n-1);
+            Sorts.MergeSort(novo, 0, n-1);
 
             fim = System.nanoTime();
             tempo += (fim - inicio)/1e9;
             System.out.println("TERMINOU MERGE " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
+        System.out.println("MÉDIA: " + tempo/num + "s");
         return tempo/num;
 
     }
 
 
-    double quick5x(String[] arr, int num)
+    double Quickx(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
@@ -145,12 +150,13 @@ public class OrdenarPalavras {
             tempo += (fim - inicio)/1e9;
             System.out.println("TERMINOU QUICK " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
+        System.out.println("MÉDIA: " + tempo/num + "s");
         return tempo/num;
 
     }
 
 
-    double heap5x(String[] arr, int num)
+    double Heapx(String[] arr, int num)
     {
         double tempo = 0;
         int n = arr.length;
@@ -167,9 +173,7 @@ public class OrdenarPalavras {
             tempo += (fim - inicio)/1e9;
             System.out.println("TERMINOU HEAP " + (i+1) +": "+ (fim-inicio)/1e9 + "s");
         }
+        System.out.println("MÉDIA: " + tempo/num + "s");
         return tempo/num;
-
     }
-
-
 }

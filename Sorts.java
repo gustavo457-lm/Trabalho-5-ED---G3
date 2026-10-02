@@ -1,7 +1,7 @@
 
 public class Sorts {
 
-    static void bubble(String[] arr) {
+    static void BubbleSort(String[] arr) {
 
         int n = arr.length;
 
@@ -19,7 +19,7 @@ public class Sorts {
         }
     }
 
-    static void selection(String[] arr) {
+    static void SelectionSort(String[] arr) {
 
         int n = arr.length;
 
