@@ -123,5 +123,40 @@ public class Sorts {
             }
         }
     }
-    
+    static void QuickSort(String[] arr, int inicio, int fim) {
+
+	    if (inicio < fim) {
+
+	        String pivo = arr[inicio];
+
+	        int i = inicio + 1;
+	        int j = fim;
+
+	        while (i <= j) {
+
+	            while (i <= fim && arr[i].compareToIgnoreCase(pivo) <= 0) {
+	                i++;
+	            }
+
+	            while (j > inicio && arr[j].compareToIgnoreCase(pivo) > 0) {
+	                j--;
+	            }
+
+	            if (i < j) {
+
+	                String temp = arr[i];
+	                arr[i] = arr[j];
+	                arr[j] = temp;
+
+	            }
+	        }
+
+	        String temp = arr[inicio];
+	        arr[inicio] = arr[j];
+	        arr[j] = temp;
+
+	        QuickSort(arr, inicio, j - 1);
+	        QuickSort(arr, j + 1, fim);
+	    }
+	}
 }
